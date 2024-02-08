@@ -1,6 +1,7 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import "/pokemon/pokemon-main/src/customcolors.scss";
 /* @tailwind base;
 @tailwind components;
 @tailwind utilities; */
@@ -16,16 +17,52 @@
         height: 95vh;
         margin:auto; 
     }
-    .pokefont{
-        font-family: 'Pokemon';
-        font:'Pokemon';
-        color:blue !important;
+ 
+    .cards{
+        width: 95vh;
+        margin:auto;
+        height: auto;
+        max-height: 60vh;
+        text-align: center;
+        top:20vh !important;
     }
     .card{
-        background: rgba(255, 255, 255, 0.4);
+
         /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
         backdrop-filter: blur(11px);
         -webkit-backdrop-filter: blur(11px);
         border: 1px solid rgba(255, 255, 255, 0.5);
+        width: 12vw;
+        max-width: 12vw !important;
+        margin:auto; 
+        height: 25vh;
+        min-height: 25vh !important;
+        
+      
+    }
+    .card[id=water], .card[id=ice], .card[id=steel]{
+        background: linear-gradient(180deg, #ffff 70%, #96D9D6 100%);
+
+    }
+    .card[id=poison ], .card[id=flying], .card[id=psychic], .card[id=fairy], .card[id=ghost]{
+        background: linear-gradient(180deg, #ffff 70%, #D685AD 100%);
+
+    }
+    .card[id=normal], .card[id=grass], .card[id=bug]{
+        background: linear-gradient(180deg, #ffff 70%, #A6B91A 100%);
+
+    }
+    .card[id=fire], .card[id=fighting], .card[id=ground], .card[id=rock]{
+        background: linear-gradient(180deg, #ffff 70%, #EE8130 100%);
+
+    }
+    .card[id=steel], .card[id=dark], .card[id=bug]{
+        background: linear-gradient(180deg, #ffff 70%, #705746 100%);
+
+    }
+    .pokefont{
+        font-family: 'Pokemon';
+        font:'Pokemon';
+        color:blue !important;
     }
 }
