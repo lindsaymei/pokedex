@@ -1,0 +1,24 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@font-face {
+    font-family: 'Pokemon';
+    src: url('Pokemon-Solid.ttf')
+}
+@layer components{
+    .hero{
+        position: fixed;
+        width: 95vh;
+        height: 95vh;
+        margin:auto; 
+    }
+    .pokefont{
+        font-family: 'Pokemon';
+        font:'Pokemon';
+        color:blue !important;
+    }
+}
