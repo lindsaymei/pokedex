@@ -1,15 +1,15 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import "/pokemon/pokemon-main/src/customcolors.scss";
+
 /* @tailwind base;
 @tailwind components;
 @tailwind utilities; */
 
-@font-face {
+/* @font-face {
     font-family: 'Pokemon';
     src: url('Pokemon-Solid.ttf')
-}
+} */
 @layer components{
     .hero{
         position: fixed;
@@ -19,26 +19,48 @@
     }
  
     .cards{
-        width: 95vh;
-        margin:auto;
+        background: #B2E6C8;
+        
+        overflow-y: scroll;
+        display: grid !important;
+        grid-template-columns: repeat(8, minmax(0, 2fr)) !important;
+        grid-gap:2.5vw !important; 
+        width: 85vw;
+        margin:auto ;
         height: auto;
-        max-height: 60vh;
+        max-height: 80vh;
         text-align: center;
-        top:20vh !important;
+        bottom: 5vh !important;
+        border-radius: 2rem;
+        position: relative;
+        
+     
     }
     .card{
-
+        align-items: center;
+        justify-content: center;
+        padding: 1%;
         /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
-        backdrop-filter: blur(11px);
-        -webkit-backdrop-filter: blur(11px);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        width: 12vw;
+        width: 8vw !important;
         max-width: 12vw !important;
         margin:auto; 
         height: 25vh;
         min-height: 25vh !important;
-        
+        border-radius: .5rem;
+        white-space: nowrap;
       
+    }
+    .pfp{
+        flex-direction: row;
+        height: auto;
+        width: 8vw !important;
+        object-fit:contain
+    }
+    .name{
+        flex-direction: row;
+        text-decoration: underline;
+        text-decoration-color: #3CB970;
+        text-decoration-thickness: 0.4rem;
     }
     .card[id=water], .card[id=ice], .card[id=steel]{
         background: linear-gradient(180deg, #ffff 70%, #96D9D6 100%);

@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router";
 import About from './About'
 import Home from './Home'
 import './App.css';
+import './styles.css';
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
 
