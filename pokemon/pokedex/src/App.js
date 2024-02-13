@@ -63,19 +63,19 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
-      <div className="p-14 flex flex-col items-center">
+    <BrowserRouter className="searchCont container">
+      <div className="p-14 flex flex-col items-center filterCont">
         <Link to="/">
           <img src="/PokemonLogo.png" alt="Pokemon Logo" style={{ width: '350px' }} />
         </Link>
-        <div className="flex items-center mt-4">
+        <div className="items-center mt-4">
           <input
             onChange={(e) => setInputSearch(e.target.value)}
             placeholder="Enter Pokemon here"
             type="text"
-            className="p-2 border-blue-500 border-2"
+            className="p-2 border-blue-500 border-2 row search"
           />
-          <SortBy onSelectSort={handleSortChange} />
+          <SortBy onSelectSort={handleSortChange} className="sort"/>
         </div>
       </div>
 
