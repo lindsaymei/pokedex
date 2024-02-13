@@ -47,6 +47,13 @@
         margin-bottom:5vh !important;
         
     }
+    .logo{
+        height: auto !important;
+        width: 350px!important;
+        background-size: cover;
+        object-fit: fill;
+    
+    }
     .filterCont{
         position: absolute;
         width: 20vw;
@@ -62,12 +69,12 @@
     }
     .cards{
         
-       overflow-x: hidden;
-        padding: 1%;
-        padding-right: 2%;
+        overflow-x: hidden;
+        padding: 3%;
+        padding-right: 4%;
         overflow-y: scroll;
         display: grid !important;
-        grid-template-columns: repeat(8, minmax(0, 2fr)) !important;
+        grid-template-columns: repeat(7, minmax(0, 2fr)) !important;
         grid-gap:2.5vw !important; 
         width: 75vw;
         margin:auto ;
@@ -75,18 +82,12 @@
         max-height: 90vh;
         text-align: center;
         bottom: 5vh !important;
-        border-radius: 2rem;
+        border-radius: 1.2rem;
         position: fixed;
         left:20vw;
         bottom: 0vh;
         top:5vh;
-        /* background: rgba(255, 255, 255, 0.41);
-        border-radius: 16px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(10.1px);
-        -webkit-backdrop-filter: blur(10.1px);
-        border: 1px solid rgba(255, 255, 255, 0.46);
-        */
+        background: #021329;
         
         
      

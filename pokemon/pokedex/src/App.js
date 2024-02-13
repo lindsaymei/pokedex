@@ -66,7 +66,7 @@ function App() {
     <BrowserRouter className="searchCont container">
       <div className="p-14 flex flex-col items-center filterCont">
         <Link to="/">
-          <img src="/PokemonLogo.png" alt="Pokemon Logo" style={{ width: '350px' }} />
+          <img src="/PokemonLogo.png" alt="Pokemon Logo" style={{ width: '15vw' }} className='logo'/>
         </Link>
         <div className="items-center mt-4">
           <input
