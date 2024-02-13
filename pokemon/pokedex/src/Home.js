@@ -15,7 +15,7 @@ export default function Home({ pokemonProp: results }) {
           <div className='card container'>
             <Link to={`/pokemon/${val.name}`}>
               <img
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${val.index}.png`}
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${val.index}.png`}
                 alt=""
                 className="pfp row"
               />

@@ -1,6 +1,8 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Russo+One&family=VT323&display=swap');
 
 /* @tailwind base;
 @tailwind components;
@@ -19,7 +21,7 @@
     */
     .cards::-webkit-scrollbar-thumb{
         border-radius: .5rem;
-        background-color: #69bfb5 !important;
+        background-color: #0075BE !important;
     }
     .cards::-webkit-scrollbar {
         width: 1vw;
@@ -74,7 +76,7 @@
         padding-right: 4%;
         overflow-y: scroll;
         display: grid !important;
-        grid-template-columns: repeat(7, minmax(0, 2fr)) !important;
+        grid-template-columns: repeat(6, minmax(0, 2fr)) !important;
         grid-gap:2.5vw !important; 
         width: 75vw;
         margin:auto ;
@@ -87,7 +89,7 @@
         left:20vw;
         bottom: 0vh;
         top:5vh;
-        background: #021329;
+        background: white;
         
         
      
@@ -98,26 +100,44 @@
         justify-content: center;
         padding: 1%;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        width: 8vw !important;
+        width: 10vw !important;
         max-width: 12vw !important;
         margin:auto; 
         height: 20vh;
         min-height: 20vh !important;
         border-radius: .5rem;
         white-space: nowrap;
-        background-color: white;
+        /* background-color: white; */
         
       
     }
     .pfp{
         flex-direction: row;
-        height: auto;
-        width: 8vw !important;
-        object-fit:contain
+        height: 100%;
+        width: 10vw ;
+        object-fit:cover;
+        top: 1vh;
     }
     .name{
         flex-direction: row;
+        font-family: "VT323", monospace;
+        font-size: 1.5rem;
+        position: relative;
+        bottom: 4vh !important;
+        /* color:#0075BE; */
         
+        
+    }
+    .card:hover{
+        background-color: #FFCC00;
+        overflow-x: visible;
+        
+    }
+    .card:hover.pfp{
+        width: 22vw !important;
+        object-fit:fill;
+
+
     }
     .card.water, .card.ice, .card.steel{
        
