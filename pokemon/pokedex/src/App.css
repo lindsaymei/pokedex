@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+
+@font-face {
+  font-family: 'CustomFont';
+  src: url('./fonts/PokemonFont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

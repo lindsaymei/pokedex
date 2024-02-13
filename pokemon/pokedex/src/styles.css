@@ -6,10 +6,12 @@
 @tailwind components;
 @tailwind utilities; */
 
-/* @font-face {
-    font-family: 'Pokemon';
-    src: url('Pokemon-Solid.ttf')
-} */
+ @font-face {
+    font-family: 'CustomFont';
+    src: url('./fonts/PokemonFont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+ }
 @layer components{
     .hero{
         position: fixed;
@@ -83,8 +85,8 @@
 
     }
     .pokefont{
-        font-family: 'Pokemon';
-        font:'Pokemon';
+        font-family: 'CustomFont';
+        font:'CustomFont';
         color:blue !important;
     }
 }
