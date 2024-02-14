@@ -4,24 +4,19 @@ import { Link } from 'react-router-dom';
 import './styles.css';
 
 export default function Home({ pokemonProp: results }) {
-  console.log(results);
   return (
-    <div>
-      <div className="cards">
-        {results &&
-          results.map((val) => (
-            <div className="card container" key={val.index}>
-              <Link to={`/pokemon/${val.name}`}>
-                <img
-                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${val.index}.png`}
-                  alt=""
-                  className="pfp row"
-                />
-                <p className="name">{val.name}</p>
-              </Link>
-            </div>
-          ))}
-      </div>
+    <div className="pokemon-list-container mt-8 flex flex-wrap justify-center">
+      {results &&
+        results.map((val) => (
+          <Link to={`/pokemon/${val.name}`} key={val.index} className="card container m-4">
+            <img
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${val.index}.png`}
+              alt=""
+              className="pfp row"
+            />
+            <p className="name">{val.name}</p>
+          </Link>
+        ))}
     </div>
   );
 }

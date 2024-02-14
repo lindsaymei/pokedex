@@ -1,6 +1,8 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Russo+One&family=VT323&display=swap');
 
 /* @tailwind base;
 @tailwind components;
@@ -13,80 +15,175 @@
     font-style: normal;
  }
 @layer components{
+    /*
+    custom scrollbar
+    not supported by firefox
+    */
+    .cards::-webkit-scrollbar-thumb{
+        border-radius: .5rem;
+        background-color: #0075BE !important;
+    }
+    .cards::-webkit-scrollbar {
+        width: 1vw;
+      }
+      
+      
+      
+     
+    .searchCont{
+        height: 100vh;
+        background: #FCF6ED;
+        /* overflow-y: hidden !important; */
+        /* background-color:hsla(120,56%,94%,1);
+        background-image:
+        radial-gradient(at 83% 73%, hsla(130,82%,67%,1) 0px, transparent 50%),
+        radial-gradient(at 9% 76%, hsla(142,38%,63%,1) 0px, transparent 50%); */
+    }
     .hero{
         position: fixed;
         width: 95vh;
         height: 95vh;
         margin:auto; 
     }
- 
-    .cards{
-        background: #B2E6C8;
+    .search{
+        margin-bottom:5vh !important;
         
+    }
+    .logo{
+        height: auto !important;
+        width: 350px!important;
+        background-size: cover;
+        object-fit: fill;
+    
+    }
+    .filterCont{
+        position: absolute;
+        width: 20vw;
+        height: 95vh;
+        top:10vh !important;
+       
+        border-radius: 2rem;
+    }
+    .filterCont>.row{
+        left:5%;
+        text-align: left !important;
+        border:5 px solid red !important; 
+    }
+    .cards{
+        
+        overflow-x: hidden;
+        padding: 3%;
+        padding-right: 4%;
         overflow-y: scroll;
         display: grid !important;
-        grid-template-columns: repeat(8, minmax(0, 2fr)) !important;
+        grid-template-columns: repeat(6, minmax(0, 2fr)) !important;
         grid-gap:2.5vw !important; 
-        width: 85vw;
+        width: 75vw;
         margin:auto ;
         height: auto;
-        max-height: 80vh;
+        max-height: 90vh;
         text-align: center;
         bottom: 5vh !important;
-        border-radius: 2rem;
-        position: relative;
+        border-radius: 1.2rem;
+        position: fixed;
+        left:20vw;
+        bottom: 0vh;
+        top:5vh;
+        background: white;
+        
         
      
     }
     .card{
+        /* background: white; */
         align-items: center;
         justify-content: center;
         padding: 1%;
-        /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
-        width: 8vw !important;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        width: 10vw !important;
         max-width: 12vw !important;
         margin:auto; 
-        height: 25vh;
-        min-height: 25vh !important;
+        height: 20vh;
+        min-height: 20vh !important;
         border-radius: .5rem;
         white-space: nowrap;
+        /* background-color: white; */
+        
       
     }
     .pfp{
         flex-direction: row;
-        height: auto;
-        width: 8vw !important;
-        object-fit:contain
+        height: 100%;
+        width: 10vw ;
+        object-fit:cover;
+        top: 1vh;
     }
     .name{
         flex-direction: row;
-        text-decoration: underline;
-        text-decoration-color: #3CB970;
-        text-decoration-thickness: 0.4rem;
+        font-family: "VT323", monospace;
+        font-size: 1.5rem;
+        position: relative;
+        bottom: 4vh !important;
+        /* color:#0075BE; */
+        
+        
     }
-    .card[id=water], .card[id=ice], .card[id=steel]{
-        background: linear-gradient(180deg, #ffff 70%, #96D9D6 100%);
+    .card:hover{
+        background-color: #FFCC00;
+        overflow-x: visible;
+        
+    }
+    .card:hover.pfp{
+        width: 22vw !important;
+        object-fit:fill;
+
 
     }
-    .card[id=poison ], .card[id=flying], .card[id=psychic], .card[id=fairy], .card[id=ghost]{
-        background: linear-gradient(180deg, #ffff 70%, #D685AD 100%);
+    .card.water, .card.ice, .card.steel{
+       
+        /* background:radial-gradient(at at 10% 96%, #96D9D6  0px, transparent 100%);         */
+        color:#69bfb5;
+        
 
     }
-    .card[id=normal], .card[id=grass], .card[id=bug]{
-        background: linear-gradient(180deg, #ffff 70%, #A6B91A 100%);
+    .card.poison, .card.flying, .card.psychic, .card.fairy, .card.ghost, .card.electric{
+        color:#AC8BAF;
+        
+         
+       
 
     }
-    .card[id=fire], .card[id=fighting], .card[id=ground], .card[id=rock]{
-        background: linear-gradient(180deg, #ffff 70%, #EE8130 100%);
+    .card.normal, .card.grass, .card.bug{
+      
+        color:#73b566;
+
+        
+        
+        /* -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3); */
+        
+
+    }
+    .card.fire, .card.fighting, .card.ground, .card.rock{
+        color:#F96E46;
+        
+        /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);  */
+        /* -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3); */
 
     }
     .card[id=steel], .card[id=dark], .card[id=bug]{
-        background: linear-gradient(180deg, #ffff 70%, #705746 100%);
+        color:#EDBF85;
+        
+        
+        /* -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3); */
 
     }
     .pokefont{
-        font-family: 'CustomFont';
-        font:'CustomFont';
+        font-family: 'Pokemon';
+        font:'Pokemon';
         color:blue !important;
     }
 }

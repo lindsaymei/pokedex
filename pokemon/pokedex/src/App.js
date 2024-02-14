@@ -101,11 +101,12 @@ function App() {
 
       {!showContinueButton && (
         <div className="mt-8">
-          <Routes>
-            <Route path="/about/:pokemonId" element={<About />} />
-            <Route path="/pokemon/:pokemonName" element={<PokemonDetailPage />} />
-            <Route path="/" element={<Home pokemonProp={filteredPokemon} />} />
-          </Routes>
+        <Routes>
+          <Route path="/about/:pokemonId" element={<About />} />
+          <Route path="/pokemon/:pokemonName" element={<PokemonDetailPage />} />
+          <Route path="/" element={<Home pokemonProp={filteredPokemon} />} />
+        </Routes>
+
         </div>
       )}
     </BrowserRouter>
