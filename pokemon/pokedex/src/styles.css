@@ -76,8 +76,9 @@
         padding-right: 4%;
         overflow-y: scroll;
         display: grid !important;
-        grid-template-columns: repeat(6, minmax(0, 2fr)) !important;
-        grid-gap:2.5vw !important; 
+        grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+
+        grid-gap:.25rem !important; 
         width: 75vw;
         margin:auto ;
         height: auto;
@@ -94,51 +95,85 @@
         
      
     }
+ 
     .card{
         /* background: white; */
         align-items: center;
         justify-content: center;
         padding: 1%;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        width: 10vw !important;
+        width: 8vw !important;
         max-width: 12vw !important;
         margin:auto; 
-        height: 20vh;
-        min-height: 20vh !important;
+        height: 15vh;
+        min-height: 15vh !important;
         border-radius: .5rem;
         white-space: nowrap;
-        /* background-color: white; */
+        background: #ADF3FF ;
         
       
     }
-    .pfp{
-        flex-direction: row;
+    .hoverCont{
+        /* background: white; */
+        padding: .5rem;
+
+       object-fit: contain;
+       height: 100%;
+       width: 10vw !important;
+       max-width: 10vw !important;
+       margin:auto;
+        
+   }
+    img.pfp{
+        object-fit: contain;
         height: 100%;
-        width: 10vw ;
-        object-fit:cover;
-        top: 1vh;
-    }
+        width: 10vw !important;
+        margin:auto;
+        text-align: center;
+        margin:auto;
+        position: relative;
+        }    
+  
     .name{
         flex-direction: row;
         font-family: "VT323", monospace;
         font-size: 1.5rem;
-        position: relative;
-        bottom: 4vh !important;
+        color:black; 
+        /* bottom: 2vh !important; */
         /* color:#0075BE; */
+        -webkit-text-stroke-width: .01rem;
+        -webkit-text-stroke-color: black;
+        position: relative;
+        top: -5vh !important;
+        
+    }
+ 
+    .hoverCont:hover{
+        overflow: visible;
+        border-radius: .5rem;
+    
+        --s: 2rem; /* the size on the corner */
+        --t: .5rem;  /* the thickness of the border */
+        --g: 5vw; /* the gap between the border and image */
+        
+        outline: var(--t) solid #FC6471; /* the color here */
+        outline-offset: calc(-1*var(--t));
+        mask:
+          conic-gradient(at var(--s) var(--s),#0000 75%,#000 0)
+          0 0/calc(100% - var(--s)) calc(100% - var(--s)),
+          linear-gradient(#000 0 0) content-box;
+        transition: .4s;
+        width: 22vw !important;
+
+        
         
         
     }
     .card:hover{
-        background-color: #FFCC00;
-        overflow-x: visible;
-        
+        background: #FFF570;
     }
-    .card:hover.pfp{
-        width: 22vw !important;
-        object-fit:fill;
 
-
-    }
+   
     .card.water, .card.ice, .card.steel{
        
         /* background:radial-gradient(at at 10% 96%, #96D9D6  0px, transparent 100%);         */

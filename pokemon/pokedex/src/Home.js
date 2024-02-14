@@ -12,6 +12,7 @@ export default function Home({ pokemonProp: results }) {
     <div>
       <div className="cards">
         {results.map((val) => (
+        <div className='hoverCont'>
           <div className='card container'>
             <Link to={`/pokemon/${val.name}`}>
               <img
@@ -23,6 +24,7 @@ export default function Home({ pokemonProp: results }) {
             </Link>
           
           </div>
+        </div>
         ))}
       </div>
     </div>
