@@ -1,0 +1,38 @@
+/* PokemonDetailPage.css */
+.pokemon-details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .pokemon-image-container {
+    margin-bottom: 20px;
+  }
+  
+  .pokemon-image {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .pokemon-info {
+    text-align: center;
+  }
+  
+  .stat-box {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+  }
+  
+  .type-box {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+    display: inline-block;
+  }

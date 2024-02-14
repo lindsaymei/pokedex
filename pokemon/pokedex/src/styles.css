@@ -222,3 +222,34 @@
         color:blue !important;
     }
 }
+
+    
+.pikachu-image {
+    width: 600px;
+    height: 600px;
+    margin-top: -250px;
+    margin-right: -600px; 
+    z-index: 1; 
+  }
+  
+  .pokemon-logo {
+    width: 800px;
+    z-index: 0;
+  }
+  
+  .continue-button {
+    font-size: 2rem;
+    padding: 15px 30px;
+    background-color: #3c5aa6;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+    left: 40%; 
+    bottom: 30%; 
+  }
+  
+  .continue-button:hover {
+    background-color: #ffcb05;
+  }
