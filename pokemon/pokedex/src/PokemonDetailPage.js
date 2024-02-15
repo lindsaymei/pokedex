@@ -53,7 +53,7 @@ const PokemonDetailPage = ({ hideHeader }) => {
   }, [pokemonName]);
 
   return (
-    <div className="pokemon-details-container">
+    <div className={`pokemon-details-container ${hideHeader ? 'font-vt323' : ''}`}>
       {!hideHeader && (
         <div className="header">
           <Link to="/">
@@ -76,17 +76,27 @@ const PokemonDetailPage = ({ hideHeader }) => {
             <div className="stat-box">
               <p>Pokedex Number: {pokemonDetails.id}</p>
             </div>
-            <div className="type-box" style={{ backgroundColor: getTypeColor(pokemonDetails.types[0].type.name) }}>
-              <p>Type: {pokemonDetails.types.map((type) => capitalizeFirstLetter(type.type.name)).join(', ')}</p>
+            <div
+              className="type-box"
+              style={{ backgroundColor: getTypeColor(pokemonDetails.types[0].type.name) }}
+            >
+              <p>
+                Type:{' '}
+                {pokemonDetails.types.map((type) => capitalizeFirstLetter(type.type.name)).join(', ')}
+              </p>
             </div>
             <div className="stat-box">
               <p>HP: {pokemonDetails.stats.find((stat) => stat.stat.name === 'hp').base_stat}</p>
             </div>
             <div className="stat-box">
-              <p>Attack: {pokemonDetails.stats.find((stat) => stat.stat.name === 'attack').base_stat}</p>
+              <p>
+                Attack: {pokemonDetails.stats.find((stat) => stat.stat.name === 'attack').base_stat}
+              </p>
             </div>
             <div className="stat-box">
-              <p>Defense: {pokemonDetails.stats.find((stat) => stat.stat.name === 'defense').base_stat}</p>
+              <p>
+                Defense: {pokemonDetails.stats.find((stat) => stat.stat.name === 'defense').base_stat}
+              </p>
             </div>
           </div>
         </>

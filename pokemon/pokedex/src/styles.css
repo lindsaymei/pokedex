@@ -1,259 +1,324 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import './customcolors.scss';
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Russo+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Russo+One&family=VT323&display=swap');
 
 /* @tailwind base;
 @tailwind components;
 @tailwind utilities; */
+@layer componets{
+    @font-face {
+        font-family: 'CustomFont';
+        src: url('./fonts/PokemonFont.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+     }
+     /*
+     hide unecessary scrollbar
+     */
+     body{
+        overflow-x: hidden;
+        /* uncommont and comment overflow to hide just horizontal*/
+     } 
+     .pokeSearch{
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        /* background-image: url('/public/bg.png'); */
+        background-size: contain;
 
- @font-face {
-    font-family: 'CustomFont';
-    src: url('./fonts/PokemonFont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
- }
+     }
+     
+    
+        /*
+        custom scrollbar
+        not supported by firefox
+        */
+        .cards::-webkit-scrollbar-thumb{
+            border-radius: .5rem;
+            background-color: #0075BE !important;
+        }
+        .cards::-webkit-scrollbar {
+            width: 1vw;
+          }
+          
+          
+          
+         
+        .searchCont{
+            height: 100vh;
+            background: #FCF6ED;
+            /* overflow-y: hidden !important; */
+            /* background-color:hsla(120,56%,94%,1);
+            background-image:
+            radial-gradient(at 83% 73%, hsla(130,82%,67%,1) 0px, transparent 50%),
+            radial-gradient(at 9% 76%, hsla(142,38%,63%,1) 0px, transparent 50%); */
+        }
+        .hero{
+            position: fixed;
+            max-width: 95vh;
+            height: 95vh;
+            margin:auto; 
+        }
+        .search{
+            margin-bottom:5vh !important;
+            
+        }
+        /*
+        do not change
+        logo needs to be responsive :)
+        */
+        .headerLogo{
+            height: auto !important;
+            /* width: 20vw!important; */
+            background-size: cover;
+            object-fit: fill;
+            position: fixed;
+            top:-1.5vh ;
+            margin-bottom: 2.5vh;
+            right:70vw;
+        
+        }
+        .filterCont{
+            flex-direction: row !important;
+            position: absolute;
+            width: 40vw;
+            height: 8vh;
+            white-space: nowrap !important;
+            font-family: "VT323", monospace;
+            font-size: larger;
+            display: flex;
+            top:5vh;
+            left:65vw;
+            select{
+                width: 10vw;
+                border-radius: .5rem;
+                padding: 1%;
+                margin:auto;
+                margin-top:1.5vh !important;
+                
+            }
+    
+            
+        }
+        .pokemon-list-container{
+            margin-top: 1vh;;
+        }
+      
+        .filterCont>input{
+            width: 15vw;
+            border-radius: .5rem;
+            max-height: 5vh;
+    
+    
+        }
+     
+        .sortBy{
+            /* TEMP FIX*/
+            margin-top: 2.5vh !important;
+            margin-left: -1vw;
+        }
+        .header{
+            height: 10vh;
+            flex-direction: row;
+            position: sticky;
+            top:1vh;
+            
+        }
+        .cards{
+            background-image: url('/public/grassbg.png');
 
-    /*
-    custom scrollbar
-    not supported by firefox
-    */
-    .cards::-webkit-scrollbar-thumb{
-        border-radius: .5rem;
-        background-color: #0075BE !important;
-    }
-    .cards::-webkit-scrollbar {
-        width: 1vw;
+            background-size: fill;
+            overflow-x: hidden;
+            padding: 1%;
+            left:-3.5vw;
+            display: grid !important;
+            grid-template-columns: repeat(8, minmax(0, 2fr)) !important;
+            grid-gap:2.5vw !important; 
+            width: 95% !important;
+            margin:auto ;
+            height: auto;
+            max-height: 75vh;
+            text-align: center;
+            overflow-y: scroll ;
+            /* border-radius: 1rem; */
+            border-radius: 1rem;
+            position: relative;
+            z-index: 99;
+
+            /* border-image: url('/public/frame.png') 30 round;
+            border-image-slice: 300 ; 
+            border-image-width: 90vw;
+            border-image-outset: 2rem; */
+
+            /* bottom: 5vh !importavnt;
+            position: fixed;
+            left:20vw;
+            bottom: 0vh;
+            top:5vh;
+            background: white;
+            overflow-y: scroll; */
+        }
+  
+        .card{
+            
+            /* background: white; */
+            align-items: flex-start;
+            padding: 1%;
+            width: 10vw !important;
+            max-width: 12vw !important;
+            margin:auto; 
+            height: 15vh;
+            min-height: 15vh !important;
+            border-radius: .5rem;
+            white-space: nowrap;
+            /* background-color: white; */
+            justify-content: flex-start;
+            justify-content: flex-start; /* Align items to the start (left) */
+            transition: transform 0.3s ease-in-out;
+            transform-origin: center bottom;
+            /* background: linear-gradient(to top, #CCC 50%, white 60%); */
+    
+          
+        }
+    
+        .name{
+            flex-direction: row;
+            font-family: "VT323", monospace;
+            font-size: 1.5rem;
+            position: relative;
+            bottom: .5vh !important;
+            margin: auto;
+            text-align: center;
+          
+            /* color:#0075BE; */
+            
+            
+        }
+        /* on hover: border corners (only)*/
+        /* .hoverCont{
+            max-height: 22vh;
+            width: 10vw !important;
+            max-width: 12vw !important;
+            margin:auto; 
+            height: 100%;
+            min-height: 18vh !important;
+            border-radius: .5rem;
+            position: relative;
+            background: transparent !important;
+         
+            padding: .5rem;
+            object-fit: contain;
+            margin: auto;
+            background: transparent !important;
+        
+       
+        } */
+        img.pfp {
+            object-fit: contain;
+            height: 100%;
+            max-height: 15vh;
+            width: 12vw !important;
+            text-align: center;
+            margin: auto;
+            position: relative;
+            background: transparent !important;
+            flex-direction: row;
+            height: 100%;
+            width: 10vw ;
+            object-fit:cover;
+            bottom: -.5vh !important;
+            z-index: 99;
+        }
+        .hoverCont:hover{
+            max-height: 8vh;
+            --s: 2.5rem; /* the size on the corner */
+            --t: .25rem;  /* the thickness of the border */
+            --g: .5rem; /* the gap between the border and image */
+            
+            padding: calc(var(--g) + var(--t));
+            outline: var(--t) solid #FFCC00; /* the color here */
+            outline-offset: calc(-1*var(--t));
+            mask:
+              conic-gradient(at var(--s) var(--s),#0000 75%,#000 0)
+              0 0/calc(100% - var(--s)) calc(100% - var(--s)),
+              linear-gradient(#000 0 0) content-box;
+            transition: .4s;
+        }
+        .card:hover{
+            /* background: linear-gradient(to top, #FFCC00 50%, white 70%); */
+            overflow-x: visible;
+            transform: scale(1.1);
+            cursor:url('/public/mouse.png'), auto;
+
+        }
+        .card:hover.pfp{
+            width: 22vw !important;
+            object-fit:fill;
+            
+    
+        }
+    
+       
+        
+        .pokefont{
+            font-family: 'Pokemon';
+            font:'Pokemon';
+            color:blue !important;
+        }
+    
+    
+        
+    .pikachu-image {
+        width: 600px;
+        height: 600px;
+        margin-top: -250px;
+        margin-right: -600px; 
+        z-index: 1; 
       }
       
+      .pokemon-logo {
+        width: 800px;
+        z-index: 0;
+      }
       
+      .continue-button {
+        font-size: 2rem;
+        padding: 15px 30px;
+        background-color: #3c5aa6;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        position: absolute;
+        left: 40%; 
+        bottom: 30%; 
+      }
       
-     
-    .searchCont{
-        height: 100vh;
-        background: #FCF6ED;
-        /* overflow-y: hidden !important; */
-        /* background-color:hsla(120,56%,94%,1);
-        background-image:
-        radial-gradient(at 83% 73%, hsla(130,82%,67%,1) 0px, transparent 50%),
-        radial-gradient(at 9% 76%, hsla(142,38%,63%,1) 0px, transparent 50%); */
-    }
-    .hero{
-        position: fixed;
-        width: 95vh;
-        height: 95vh;
-        margin:auto; 
-    }
-    .search{
-        margin-bottom:5vh !important;
-        
-    }
-    /*
-    do not change
-    logo needs to be responsive 
-    */
-    .logo{
-        height: auto !important;
-        width: 20vw!important;
-        background-size: cover;
-        object-fit: fill;
+      .continue-button:hover {
+        background-color: #ffcb05;
+      }
     
-        top:2.5vh;
-        margin-bottom: 5vh;
+      .scroll-box {
+        max-height: 900px; /* Adjust the max height as needed */
+        overflow-y: auto;
+        border:10px solid #3c5aa6;
+        padding: 10px;
+        border-radius: 10px;
+        width: 95%; /* Adjust the width as needed */
+        margin: auto;
+      }
     
-    }
-    .filterCont{
-        position: absolute;
-        width: 20vw;
-        height: 65vh;
-        top:10vh !important;
-        right:75vw;
-        border-radius: 2rem;
-        overflow-y: visible;
-        padding-bottom: 15vh !important;
-    }
-    .filterCont>.row{
-        position: absolute;
-        text-align: left !important;
-        margin-top: 4vh !important;
-    }
-    .sortBy{
-        /* TEMP FIX*/
-        margin-top: 2.5vh !important;
-        margin-left: -1vw;
-    }
-    .cards{
-        
-        overflow-x: hidden;
-        padding: 3%;
-        padding-right: 4%;
-        display: grid !important;
-        grid-template-columns: repeat(6, minmax(0, 2fr)) !important;
-        grid-gap:2.5vw !important; 
-        width: 75vw;
-        margin:auto ;
-        height: auto;
-        max-height: 90vh;
-        text-align: center;
-        bottom: 5vh !important;
-        border-radius: 1.2rem;
-        position: fixed;
-        left:20vw;
-        bottom: 0vh;
-        top:5vh;
-        background: white;
-        overflow-y: scroll;
-    }
-    .card{
-        /* background: white; */
-        align-items: flex-start;
-        padding: 1%;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        width: 10vw !important;
-        max-width: 12vw !important;
-        margin:auto; 
-        height: 20vh;
-        min-height: 20vh !important;
+      .scroll-box::-webkit-scrollbar-thumb{
         border-radius: .5rem;
-        white-space: nowrap;
-        /* background-color: white; */
-        justify-content: flex-start;
-        justify-content: flex-start; /* Align items to the start (left) */
-        transition: transform 0.3s ease-in-out;
-        transform-origin: center bottom;
-        background: linear-gradient(to top, #CCC 50%, white 60%);
-
-      
+        background-color: #ffcb05 !important;
     }
-
-    .name{
-        flex-direction: row;
-        font-family: "VT323", monospace;
-        font-size: 1.5rem;
-        position: relative;
-        bottom: 2.5vh !important;
-        /* color:#0075BE; */
-        
-        
-    }
-    .card:hover{
-        background: linear-gradient(to top, #FFCC00 50%, white 70%);
-        overflow-x: visible;
-        transform: scale(1.1);
-
-        
-    }
-    .card:hover.pfp{
-        width: 22vw !important;
-        object-fit:fill;
-
-
-    }
-
-    .pfp{
-        flex-direction: row;
-        height: 100%;
-        width: 10vw ;
-        object-fit:cover;
-        top: 1vh;
-    }
-    .card.water, .card.ice, .card.steel{
-       
-        /* background:radial-gradient(at at 10% 96%, #96D9D6  0px, transparent 100%);         */
-        color:#69bfb5;
-        
-
-    }
-    .card.poison, .card.flying, .card.psychic, .card.fairy, .card.ghost, .card.electric{
-        color:#AC8BAF;
-        
-         
-       
-
-    }
-    .card.normal, .card.grass, .card.bug{
-      
-        color:#73b566;
-
-        
-        
-        /* -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.3); */
-        
-
-    }
-    .card.fire, .card.fighting, .card.ground, .card.rock{
-        color:#F96E46;
-        
-        /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(10px);  */
-        /* -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.3); */
-
-    }
-    .card[id=steel], .card[id=dark], .card[id=bug]{
-        color:#EDBF85;
-        
-        
-        /* -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.3); */
-
-    }
-    .pokefont{
-        font-family: 'Pokemon';
-        font:'Pokemon';
-        color:blue !important;
-    }
-
-
-    
-.pikachu-image {
-    width: 600px;
-    height: 600px;
-    margin-top: -250px;
-    margin-right: -600px; 
-    z-index: 1; 
-  }
-  
-  .pokemon-logo {
-    width: 800px;
-    z-index: 0;
-  }
-  
-  .continue-button {
-    font-size: 2rem;
-    padding: 15px 30px;
-    background-color: #3c5aa6;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    position: absolute;
-    left: 40%; 
-    bottom: 30%; 
-  }
-  
-  .continue-button:hover {
-    background-color: #ffcb05;
-  }
-
-  .scroll-box {
-    max-height: 900px; /* Adjust the max height as needed */
-    overflow-y: auto;
-    border:10px solid #3c5aa6;
-    padding: 10px;
-    border-radius: 10px;
-    width: 95%; /* Adjust the width as needed */
-    margin: auto;
-  }
-
-  .scroll-box::-webkit-scrollbar-thumb{
-    border-radius: .5rem;
-    background-color: #ffcb05 !important;
+    .scroll-box::-webkit-scrollbar {
+        width: 1vw;
+      }
 }
-.scroll-box::-webkit-scrollbar {
-    width: 1vw;
-  }
+ 
 
   

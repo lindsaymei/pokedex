@@ -5,6 +5,7 @@ import About from './About';
 import Home from './Home';
 import PokemonDetailPage from './PokemonDetailPage';
 import SortBy from './SortBy';
+import axios from 'axios'; // Import axios for fetching detailed Pokemon information
 import './App.css';
 import './styles.css';
 
@@ -30,34 +31,36 @@ function App() {
     if (!pokemonsData.results) {
       return;
     }
-
-    let sortedResults = [...pokemonsData.results];
-
-    switch (sortCriteria) {
-      case 'index':
-        sortedResults.sort((a, b) => a.index - b.index);
-        break;
-      case 'name':
-        sortedResults.sort((a, b) => a.name.localeCompare(b.name));
-        break;
-      case 'hp':
-        sortedResults.sort((a, b) => getStatValue(a, 'hp') - getStatValue(b, 'hp'));
-        break;
-      case 'attack':
-        sortedResults.sort((a, b) => getStatValue(a, 'attack') - getStatValue(b, 'attack'));
-        break;
-      case 'defense':
-        sortedResults.sort((a, b) => getStatValue(a, 'defense') - getStatValue(b, 'defense'));
-        break;
-      default:
-        sortedResults.sort((a, b) => a.index - b.index);
-    }
-
-    if (inputSearch) {
-      sortedResults = sortedResults.filter((pokemon) => pokemon.name.includes(inputSearch));
-    }
-
-    setFilteredPokemon(sortedResults);
+  
+    const fetchAndSortPokemonDetails = async () => {
+      const pokemonDetailsArray = await Promise.all(
+        pokemonsData.results.map(async (pokemon) => {
+          const response = await axios.get(pokemon.url);
+          return response.data;
+        })
+      );
+  
+      let sortedResults = [...pokemonDetailsArray];
+  
+      switch (sortCriteria) {
+        case 'index':
+          sortedResults.sort((a, b) => a.id - b.id);
+          break;
+        case 'name':
+          sortedResults.sort((a, b) => a.name.localeCompare(b.name));
+          break;
+        default:
+          sortedResults.sort((a, b) => a.id - b.id);
+      }
+  
+      if (inputSearch) {
+        sortedResults = sortedResults.filter((pokemon) => pokemon.name.includes(inputSearch));
+      }
+  
+      setFilteredPokemon(sortedResults);
+    };
+  
+    fetchAndSortPokemonDetails();
   }, [sortCriteria, pokemonsData.results, inputSearch]);
 
   const handleSortChange = (criteria) => {
@@ -69,8 +72,10 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
-      <div className={`p-14 flex flex-col items-center relative ${showContinueButton ? 'bg-gray-200' : ''}`}>
+    //do not remove header class for UX reasons
+    <section className='pokeSearch'>
+      <BrowserRouter>
+      <div className="p-14 flex flex-col items-center relative header"> 
         {showContinueButton && (
           <>
             <img src="/PokemonLogo.png" alt="Pokemon Logo" className="logo-image" />
@@ -83,9 +88,9 @@ function App() {
         {!showContinueButton && (
           <>
             <Link to="/">
-              <img src="/PokemonLogo.png" alt="Pokemon Logo" style={{ width: '350px' }} />
+              <img className="headerLogo" src="/PokemonLogo.png" alt="Pokemon Logo" style={{ width: '350px' }} />
             </Link>
-            <div className="flex items-center mt-4">
+            <div className="flex items-center mt-4 filterCont">
               <input
                 onChange={(e) => setInputSearch(e.target.value)}
                 placeholder="Enter Pokemon here"
@@ -124,12 +129,11 @@ function App() {
         </div>
       )}
     </BrowserRouter>
+
+    </section>
+    
   );
 }
 
 export default App;
 
-const getStatValue = (pokemon, statName) => {
-  const stat = pokemon.stats && pokemon.stats.find((s) => s.stat.name === statName);
-  return stat ? stat.base_stat : 0;
-};

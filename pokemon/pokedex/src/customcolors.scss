@@ -1,0 +1,93 @@
+::grammar-error{
+    --normal: #A8A878,
+    --fire: #F08030,
+    --water: #6390F0,
+    --grass: #78C850,
+    --electric: #F8D030,
+    --ice: #98D8D8,
+    --fighting: #C03028,
+    --poison: #A040A0,
+    --ground: #E0C068,
+    --flying: #A890F0,
+    --psychic: #F85888,
+    --bug: #A8B820,
+    --rock: #B8A038,
+    --ghost: #705898,
+    --dark: #705848,
+    --dragon: #7038F8,
+    --steel: #B8B8D0,
+    --fairy: #EE99AC,
+}
+
+@mixin cardBg($bg:#A8A878){
+    background: $bg;
+}
+
+.card{
+    $possibleTypes: normal, fire, water, grass, electric, ice, fighting, poison, ground, flying, psychic, bug, rock, ghost, dark, dragon, steel, fairy;
+    $empty:true;
+    @each $type in $possibleTypes{
+        @if $empty{
+            @include cardBg();
+        }
+    }
+}
+      /* via https://codepen.io/albpara/pen/JjRarO */
+
+
+.card[class~="normal"]{
+    color:  #95955F; 
+}
+.card[class~="fire"]{
+    color: #F08030;
+}
+.card[class~="water"]{
+    color: #6890F0 ;
+}   
+.card[class~="grass"]{
+    color: #2F7555;
+}   
+.card[class~="electric"]{
+    color: #F7CD26;
+}   
+.card[class~="ice"]{
+    color: #98D8D8;
+}
+.card[class~="fighting"]{
+    color: #C03028;
+}
+.card[class~="poison"]{
+    color: #A040A0;
+}
+.card[class~="ground"]{
+    color: #E0C068;
+}
+.card[class~="flying"]{
+    color: #A890F0;
+}
+.card[class~="psychic"]{
+    color: #F85888;
+}   
+.card[class~="bug"]{
+    color: #7F8B18;
+}
+.card[class~="rock"]{
+    color: #9C8830;
+}
+.card[class~="ghost"]{
+    color: #705898;
+}
+.card[class~="dark"]{
+    color: #705848;
+}
+.card[class~="dragon"]{
+    color: #7038F8;
+}   
+.card[class~="steel"]{
+    color: #B8B8D0;
+}
+.card[class~="fairy"]{
+    color: #EE99AC;
+}
+
+
