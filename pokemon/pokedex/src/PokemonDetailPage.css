@@ -1,38 +1,46 @@
-/* PokemonDetailPage.css */
 .pokemon-details-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
-  }
-  
-  .pokemon-image-container {
-    margin-bottom: 20px;
-  }
-  
-  .pokemon-image {
-    width: 150px;
-    height: 150px;
-  }
-  
-  .pokemon-info {
-    text-align: center;
-  }
-  
-  .stat-box {
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    margin: 10px;
-    padding: 10px;
-    width: 200px;
-  }
-  
-  .type-box {
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    margin: 10px;
-    padding: 10px;
-    width: 200px;
-    display: inline-block;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.pokemon-info {
+  text-align: center;
+  margin-left: 20px; /* Add margin to separate from the image */
+}
+
+.pokemon-image {
+  width: 250px; /* Adjust the size as needed */
+  height: 250px; /* Adjust the size as needed */
+  border: 2px solid #333333;
+  border-radius: 8px;
+  margin-right: 20px; /* Add margin to separate from the text */
+}
+
+h2 {
+  font-family: "VT323", monospace;
+  font-size: 5rem;  
+  margin-bottom: 10px; /* Add space between the name and stats */
+}
+
+.stat-box {
+  border: 2px solid #333333;
+  color: black;
+  background-color: #ccc;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 10px;
+  width: 200px;
+  display: inline-block;
+}
+
+.type-box {
+  border: 2px solid black;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 10px;
+  width: 200px;
+  display: inline-block;
+}
+

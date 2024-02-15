@@ -1,22 +1,35 @@
 // Home.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { capitalizeFirstLetter } from './utils';
 import './styles.css';
 
-export default function Home({ pokemonProp: results }) {
+
+
+const Home = ({ pokemonProp: results }) => {
   return (
-    <div className="pokemon-list-container mt-8 flex flex-wrap justify-center">
+    <div className="pokemon-list-container mt-8 flex flex-wrap">
       {results &&
-        results.map((val) => (
-          <Link to={`/pokemon/${val.name}`} key={val.index} className="card container m-4">
-            <img
-              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${val.index}.png`}
-              alt=""
-              className="pfp row"
-            />
-            <p className="name">{val.name}</p>
-          </Link>
-        ))}
+        results.map((val) => {
+          return (
+            <Link
+              to={`/pokemon/${val.name}`}
+              key={val.index}
+              className="card container"
+            >
+              <img
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${val.index}.png`}
+                alt=""
+                className="pfp row"
+              />
+              <div className="name">
+                {capitalizeFirstLetter(val.name)}
+              </div>
+            </Link>
+          );
+        })}
     </div>
   );
-}
+};
+
+export default Home;

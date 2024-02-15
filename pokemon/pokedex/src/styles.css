@@ -14,7 +14,7 @@
     font-weight: normal;
     font-style: normal;
  }
-@layer components{
+
     /*
     custom scrollbar
     not supported by firefox
@@ -74,7 +74,6 @@
         overflow-x: hidden;
         padding: 3%;
         padding-right: 4%;
-        overflow-y: scroll;
         display: grid !important;
         grid-template-columns: repeat(6, minmax(0, 2fr)) !important;
         grid-gap:2.5vw !important; 
@@ -90,9 +89,7 @@
         bottom: 0vh;
         top:5vh;
         background: white;
-        
-        
-     
+        overflow-y: scroll;
     }
     .card{
         /* background: white; */
@@ -108,29 +105,28 @@
         border-radius: .5rem;
         white-space: nowrap;
         /* background-color: white; */
-        
+        transition: transform 0.3s ease-in-out;
+        transform-origin: center bottom;
+        background: linear-gradient(to top, rgb(206, 206, 206) 50%, white 70%)
+
       
     }
-    .pfp{
-        flex-direction: row;
-        height: 100%;
-        width: 10vw ;
-        object-fit:cover;
-        top: 1vh;
-    }
+
     .name{
         flex-direction: row;
         font-family: "VT323", monospace;
         font-size: 1.5rem;
         position: relative;
-        bottom: 4vh !important;
+        bottom: 2.5vh !important;
         /* color:#0075BE; */
         
         
     }
     .card:hover{
-        background-color: #FFCC00;
+        background: linear-gradient(to top, #FFCC00 50%, white 70%);
         overflow-x: visible;
+        transform: scale(1.1);
+
         
     }
     .card:hover.pfp{
@@ -138,6 +134,14 @@
         object-fit:fill;
 
 
+    }
+
+    .pfp{
+        flex-direction: row;
+        height: 100%;
+        width: 10vw ;
+        object-fit:cover;
+        top: 1vh;
     }
     .card.water, .card.ice, .card.steel{
        
@@ -186,7 +190,7 @@
         font:'Pokemon';
         color:blue !important;
     }
-}
+
 
     
 .pikachu-image {
@@ -218,3 +222,23 @@
   .continue-button:hover {
     background-color: #ffcb05;
   }
+
+  .scroll-box {
+    max-height: 950px; /* Adjust the max height as needed */
+    overflow-y: auto;
+    border:10px solid #3c5aa6;
+    padding: 10px;
+    border-radius: 10px;
+    width: 95%; /* Adjust the width as needed */
+    margin: auto;
+  }
+
+  .scroll-box::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: #ffcb05 !important;
+}
+.scroll-box::-webkit-scrollbar {
+    width: 1vw;
+  }
+
+  

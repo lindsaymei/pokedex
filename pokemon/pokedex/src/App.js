@@ -1,6 +1,6 @@
 // App.js
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom';
 import About from './About';
 import Home from './Home';
 import PokemonDetailPage from './PokemonDetailPage';
@@ -68,13 +68,12 @@ function App() {
     setShowContinueButton(false);
   };
 
- 
   return (
     <BrowserRouter>
       <div className="p-14 flex flex-col items-center relative">
         {showContinueButton && (
           <>
-            <img src="/PokemonLogo.png" alt="Pokemon Logo" className="pokemon-logo" />
+            <img src="/PokemonLogo.png" alt="Pokemon Logo" className="logo-image" />
             <img src="/Pikachu.png" alt="Pikachu" className="pikachu-image" />
             <button onClick={handleContinueButtonClick} className="continue-button">
               Continue
@@ -84,7 +83,7 @@ function App() {
         {!showContinueButton && (
           <>
             <Link to="/">
-              <img src="/PokemonLogo.png" alt="Pokemon Logo" style={{ width: '300px' }} />
+              <img src="/PokemonLogo.png" alt="Pokemon Logo" style={{ width: '350px' }} />
             </Link>
             <div className="flex items-center mt-4">
               <input
@@ -100,13 +99,28 @@ function App() {
       </div>
 
       {!showContinueButton && (
-        <div className="mt-8">
-        <Routes>
-          <Route path="/about/:pokemonId" element={<About />} />
-          <Route path="/pokemon/:pokemonName" element={<PokemonDetailPage />} />
-          <Route path="/" element={<Home pokemonProp={filteredPokemon} />} />
-        </Routes>
-
+        <div className="scroll-box mt-8">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Home
+                  pokemonProp={filteredPokemon}
+                  showContinueButton={showContinueButton}
+                />
+              }
+            />
+            <Route path="/about/:pokemonId" element={<About />} />
+            <Route
+              path="/pokemon/:pokemonName"
+              element={
+                <PokemonDetailPage
+                  hideHeader={true} // Pass a prop to hide the header
+                />
+              }
+            />
+            <Route path="/pokemon" element={<Navigate to="/" />} />
+          </Routes>
         </div>
       )}
     </BrowserRouter>
@@ -118,4 +132,4 @@ export default App;
 const getStatValue = (pokemon, statName) => {
   const stat = pokemon.stats && pokemon.stats.find((s) => s.stat.name === statName);
   return stat ? stat.base_stat : 0;
-}
+};
