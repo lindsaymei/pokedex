@@ -49,25 +49,39 @@
         margin-bottom:5vh !important;
         
     }
+    /*
+    do not change
+    logo needs to be responsive 
+    */
     .logo{
         height: auto !important;
-        width: 350px!important;
+        width: 20vw!important;
         background-size: cover;
         object-fit: fill;
+    
+        top:2.5vh;
+        margin-bottom: 5vh;
     
     }
     .filterCont{
         position: absolute;
         width: 20vw;
-        height: 95vh;
+        height: 65vh;
         top:10vh !important;
-       
+        right:75vw;
         border-radius: 2rem;
+        overflow-y: visible;
+        padding-bottom: 15vh !important;
     }
     .filterCont>.row{
-        left:5%;
+        position: absolute;
         text-align: left !important;
-        border:5 px solid red !important; 
+        margin-top: 4vh !important;
+    }
+    .sortBy{
+        /* TEMP FIX*/
+        margin-top: 2.5vh !important;
+        margin-left: -1vw;
     }
     .cards{
         
@@ -93,8 +107,7 @@
     }
     .card{
         /* background: white; */
-        align-items: center;
-        justify-content: center;
+        align-items: flex-start;
         padding: 1%;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         width: 10vw !important;
@@ -105,9 +118,11 @@
         border-radius: .5rem;
         white-space: nowrap;
         /* background-color: white; */
+        justify-content: flex-start;
+        justify-content: flex-start; /* Align items to the start (left) */
         transition: transform 0.3s ease-in-out;
         transform-origin: center bottom;
-        background: linear-gradient(to top, rgb(206, 206, 206) 50%, white 70%)
+        background: linear-gradient(to top, #CCC 50%, white 60%);
 
       
     }
@@ -224,7 +239,7 @@
   }
 
   .scroll-box {
-    max-height: 950px; /* Adjust the max height as needed */
+    max-height: 900px; /* Adjust the max height as needed */
     overflow-y: auto;
     border:10px solid #3c5aa6;
     padding: 10px;

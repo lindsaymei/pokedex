@@ -70,7 +70,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="p-14 flex flex-col items-center relative">
+      <div className={`p-14 flex flex-col items-center relative ${showContinueButton ? 'bg-gray-200' : ''}`}>
         {showContinueButton && (
           <>
             <img src="/PokemonLogo.png" alt="Pokemon Logo" className="logo-image" />

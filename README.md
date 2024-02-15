@@ -6,3 +6,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
 
 # link to bootstrap classes: https://getbootstrap.com/docs/4.0/components/alerts/ 
+# convert pixels to a responsive size: https://webcode.solutions/en/tools/px-to-vw/ 
