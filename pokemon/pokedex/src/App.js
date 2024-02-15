@@ -93,7 +93,9 @@ function App() {
                 type="text"
                 className="p-2 border-blue-500 border-2"
               />
-              <SortBy onSelectSort={handleSortChange}  className="row"/>
+              <div className='row sortBy'>
+                <SortBy onSelectSort={handleSortChange} />
+              </div>
             </div>
           </div>
         )}

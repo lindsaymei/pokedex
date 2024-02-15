@@ -58,26 +58,31 @@
         width: 20vw!important;
         background-size: cover;
         object-fit: fill;
-        position: fixed;
+    
         top:2.5vh;
-        margin-bottom: 10vh;
+        margin-bottom: 5vh;
     
     }
     .filterCont{
         position: absolute;
         width: 20vw;
-        height: 95vh;
+        height: 65vh;
         top:10vh !important;
         right:75vw;
         border-radius: 2rem;
         overflow-y: visible;
+        padding-bottom: 15vh !important;
     }
     .filterCont>.row{
         position: absolute;
         text-align: left !important;
-        margin-top: 15vh;
+        margin-top: 4vh !important;
     }
-   
+    .sortBy{
+        /* TEMP FIX*/
+        margin-top: 2.5vh !important;
+        margin-left: -1vw;
+    }
     .cards{
         
         overflow-x: hidden;
