@@ -5,14 +5,13 @@ import './styles.css';
 
 export default function Home({ pokemonProp: results }) {
   return (
-    <div className="pokemon-list-container mt-8 flex flex-wrap justify-center">
+    <div className="mt-8 cards col">
       {results &&
         results.map((val) => (
-            //to do: fix styling
         <div className='hoverCont'>
-          <Link to={`/pokemon/${val.name}`} key={val.index} className="card container m-4">
+          <Link to={`/pokemon/${val.name}`} key={val.index} className="card container">
             <img
-              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${val.index}.png`}
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${val.index}.png`}
               alt=""
               className="pfp row"
             />

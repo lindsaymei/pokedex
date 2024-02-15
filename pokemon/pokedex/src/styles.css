@@ -19,11 +19,11 @@
     custom scrollbar
     not supported by firefox
     */
-    ::-webkit-scrollbar-thumb{
+    .cards::-webkit-scrollbar-thumb{
         border-radius: .5rem;
         background-color: #0075BE !important;
     }
-    ::-webkit-scrollbar {
+    .cards::-webkit-scrollbar {
         width: 1vw;
       }
       
@@ -49,11 +49,18 @@
         margin-bottom:5vh !important;
         
     }
+    /*
+    do not change
+    logo needs to be responsive 
+    */
     .logo{
         height: auto !important;
-        width: 350px!important;
+        width: 20vw!important;
         background-size: cover;
         object-fit: fill;
+        position: fixed;
+        top:2.5vh;
+        margin-bottom: 10vh;
     
     }
     .filterCont{
@@ -61,14 +68,16 @@
         width: 20vw;
         height: 95vh;
         top:10vh !important;
-       
+        right:75vw;
         border-radius: 2rem;
+        overflow-y: visible;
     }
     .filterCont>.row{
-        left:5%;
+        position: absolute;
         text-align: left !important;
-        border:5 px solid red !important; 
+        margin-top: 15vh;
     }
+   
     .cards{
         
         overflow-x: hidden;
@@ -79,7 +88,7 @@
         grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
 
         grid-gap:.5rem !important; 
-        width: 75vw;
+        width: 70vw;
         margin:auto ;
         height: auto;
         max-height: 90vh;
@@ -87,10 +96,10 @@
         bottom: 5vh !important;
         border-radius: 1.2rem;
         position: fixed;
-        left:20vw;
+        left:25vw;
         bottom: 0vh;
         top:5vh;
-        background: white;
+        background: transparent;
         
         
      
@@ -105,11 +114,11 @@
         width: 8vw !important;
         max-width: 12vw !important;
         margin:auto; 
-        height: 15vh;
-        min-height: 15vh !important;
+        height: 10vh;
+        min-height: 10vh !important;
         border-radius: .5rem;
         white-space: nowrap;
-        background: #ADF3FF ;
+        /* background: #ADF3FF !important ; */
         
       
     }
@@ -119,20 +128,26 @@
 
        object-fit: contain;
        height: 100%;
+       max-height: 15vh;
        width: 10vw !important;
        max-width: 10vw !important;
        margin:auto;
+       background: transparent !important;
         
    }
     img.pfp{
         object-fit: contain;
         height: 100%;
+        max-height: 10vh;
         width: 10vw !important;
         margin:auto;
         text-align: center;
         margin:auto;
         position: relative;
-        }    
+        background: transparent !important;
+        top:-2.5vh!important;
+       
+}    
   
     .name{
         flex-direction: row;
@@ -169,9 +184,9 @@
         
         
     }
-    .card:hover{
+    /* .card:hover{
         background: #FFF570;
-    }
+    } */
 
    
     .card.water, .card.ice, .card.steel{

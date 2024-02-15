@@ -82,20 +82,20 @@ function App() {
           </>
         )}
         {!showContinueButton && (
-          <>
+          <div className='filterCont col container'>
             <Link to="/">
-              <img src="/PokemonLogo.png" alt="Pokemon Logo" style={{ width: '300px' }} />
+              <img src="/PokemonLogo.png" alt="Pokemon Logo" style={{ width: '300px' }} className='logo' />
             </Link>
-            <div className="flex items-center mt-4">
+            <div className="mt-4 row">
               <input
                 onChange={(e) => setInputSearch(e.target.value)}
                 placeholder="Enter Pokemon here"
                 type="text"
                 className="p-2 border-blue-500 border-2"
               />
-              <SortBy onSelectSort={handleSortChange} />
+              <SortBy onSelectSort={handleSortChange}  className="row"/>
             </div>
-          </>
+          </div>
         )}
       </div>
 
