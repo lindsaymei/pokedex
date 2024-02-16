@@ -49,6 +49,29 @@ function App() {
         case 'name':
           sortedResults.sort((a, b) => a.name.localeCompare(b.name));
           break;
+        // Include each Pokémon type as a case
+        case 'normal':
+        case 'fire':
+        case 'water':
+        case 'grass':
+        case 'electric':
+        case 'ice':
+        case 'fighting':
+        case 'poison':
+        case 'ground':
+        case 'flying':
+        case 'psychic':
+        case 'bug':
+        case 'rock':
+        case 'ghost':
+        case 'dark':
+        case 'dragon':
+        case 'steel':
+        case 'fairy':
+          sortedResults = sortedResults.filter((pokemon) =>
+            pokemon.types.some((type) => type.type.name === sortCriteria)
+          );
+          break;
         default:
           sortedResults.sort((a, b) => a.id - b.id);
       }
@@ -136,4 +159,3 @@ function App() {
 }
 
 export default App;
-
