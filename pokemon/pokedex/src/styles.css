@@ -1,7 +1,7 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import './customcolors.scss';
+@import './styleshelper.scss';
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Russo+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Russo+One&family=VT323&display=swap');
 
@@ -25,7 +25,8 @@
      .pokeSearch{
         position: absolute;
         height: 100vh;
-        width: 100vw;
+        width: 100%;
+        overflow: hidden;
         /* background-image: url('/public/bg.png'); */
         background-size: contain;
 
@@ -58,10 +59,29 @@
         }
         .hero{
             position: fixed;
-            max-width: 95vh;
-            height: 95vh;
-            margin:auto; 
+            background-image: url('/public/bg.png');
+            background-size: cover;
+            background-position:center;
+            width: 100vw !important;
+            height: 109vh !important;
+            margin:0%; 
+            margin-top:-10vh;
+            /*109 and -10 are a quick fix for the offset created by the header*/
+
         }
+       .hero>.logo-image{
+            width:70vw !important;
+            height: 100%;
+            object-fit: fill;
+            margin: auto;
+        }
+        .hero>.pikachu-image{
+            position: sticky;
+            margin-top:-20vh !important;
+            margin-left: 5vw !important;
+            float:left;
+        }
+     
         .search{
             margin-bottom:5vh !important;
             
@@ -84,7 +104,7 @@
         .filterCont{
             flex-direction: row !important;
             position: absolute;
-            width: 40vw;
+            width: 40%;
             height: 8vh;
             white-space: nowrap !important;
             font-family: "VT323", monospace;
@@ -121,6 +141,7 @@
             margin-left: -1vw;
         }
         .header{
+            width: auto;
             height: 10vh;
             flex-direction: row;
             position: sticky;
@@ -129,13 +150,14 @@
         }
         .cards{
             background-image: url('/public/grassbg.png');
-
+            margin: auto;
             background-size: fill;
             overflow-x: hidden;
             padding: 1%;
-            left:-3.5vw;
+            left:-2.5vw;
+            top:-1vh;
             display: grid !important;
-            grid-template-columns: repeat(8, minmax(0, 2fr)) !important;
+            grid-template-columns: repeat(6, minmax(0, 2fr)) !important;
             grid-gap:2.5vw !important; 
             width: 95% !important;
             margin:auto ;
@@ -274,8 +296,9 @@
     .pikachu-image {
         width: 600px;
         height: 600px;
-        margin-top: -250px;
-        margin-right: -600px; 
+        /* margin-top: -250px;
+        margin-right: -600px;  */
+
         z-index: 1; 
       }
       
@@ -287,7 +310,7 @@
       .continue-button {
         font-size: 2rem;
         padding: 15px 30px;
-        background-color: #3c5aa6;
+        background: #3c5aa6;
         color: white;
         border: none;
         border-radius: 10px;
@@ -295,7 +318,9 @@
         position: absolute;
         left: 40%; 
         bottom: 30%; 
+        font:'VT323', monospace;
       }
+    
       
       .continue-button:hover {
         background-color: #ffcb05;

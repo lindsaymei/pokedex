@@ -73,17 +73,17 @@ function App() {
 
   return (
     //do not remove header class for UX reasons
-    <section className='pokeSearch'>
+    
       <BrowserRouter>
       <div className="p-14 flex flex-col items-center relative header"> 
         {showContinueButton && (
-          <>
+          <section className='hero'>
             <img src="/PokemonLogo.png" alt="Pokemon Logo" className="logo-image" />
-            <img src="/Pikachu.png" alt="Pikachu" className="pikachu-image" />
+            <img src="/pika.gif" alt="Pikachu" className="pikachu-image" />
             <button onClick={handleContinueButtonClick} className="continue-button">
               Continue
             </button>
-          </>
+          </section>
         )}
         {!showContinueButton && (
           <>
@@ -130,7 +130,7 @@ function App() {
       )}
     </BrowserRouter>
 
-    </section>
+  
     
   );
 }
