@@ -1,3 +1,4 @@
+@import url('./styles.css');
 ::grammar-error{
     --normal: #A8A878,
     --fire: #F08030,
@@ -22,6 +23,16 @@
 @mixin cardBg($bg:#A8A878){
     background: $bg;
 }
+$detailsLoaded:var(--hasFilterCont);
+
+@if var(--hasFilterCont) == "true"{
+    .filterCont{
+        display:none;
+
+    }
+}
+
+
 
 .card{
     $possibleTypes: normal, fire, water, grass, electric, ice, fighting, poison, ground, flying, psychic, bug, rock, ghost, dark, dragon, steel, fairy;

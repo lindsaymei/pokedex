@@ -1,14 +1,19 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import './styleshelper.scss';
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Russo+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Russo+One&family=VT323&display=swap');
 
+:root{
+    --hasFilterCont:false;
+}
 /* @tailwind base;
 @tailwind components;
 @tailwind utilities; */
 @layer componets{
+    
+   
+    
     @font-face {
         font-family: 'CustomFont';
         src: url('./fonts/PokemonFont.ttf') format('truetype');
@@ -122,6 +127,9 @@
             }
     
             
+        }
+        .hidden{
+            display: none;
         }
         .pokemon-list-container{
             margin-top: 1vh;;
@@ -312,7 +320,8 @@
       
       .continue-button {
         font-size: 2rem!important;
-        padding: 25px 50px !important;
+        /* padding: 25px 50px !important; */ 
+        /* updated to width and height so the text is centered*/
         background: #3c5aa6 !important;
         color: #ffcb05 !important;
         font-family: "VT323", monospace !important;
@@ -320,10 +329,12 @@
         border-radius: 10px !important; 
         position: absolute;
         cursor:url('/public/mouse.png'), auto;
-        left: 50%; 
-        bottom: 25%; 
+        left: 55%; 
+        bottom: 10%; 
         font:'VT323', monospace;
         z-index: 101;
+        max-height: 10vh;
+        width: 15vw;
       }
     
       

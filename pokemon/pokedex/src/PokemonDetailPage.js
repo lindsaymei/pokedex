@@ -4,10 +4,17 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import './PokemonDetailPage.css';
 
+
+
+
 const capitalizeFirstLetter = (str) => {
   return str.replace(/\b\w/g, (char) => char.toUpperCase());
 };
+var detailsCont= document.querySelector('.pokemon-details-container');
+if(detailsCont){
+  document.documentElement.style.setProperty('--hasFilterCont', detailsCont ? 'true' : 'false');
 
+}
 const getTypeColor = (type) => {
   const typeColors = {
     normal: '#A8A878',
