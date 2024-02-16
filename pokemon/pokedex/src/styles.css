@@ -319,6 +319,7 @@
         left: 40%; 
         bottom: 30%; 
         font:'VT323', monospace;
+        z-index: 101;
       }
     
       
