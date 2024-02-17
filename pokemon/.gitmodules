@@ -1,3 +1,5 @@
 [submodule "pokepages"]
 	path = pokepages
-	url = https://github.com/lindsaymei/pokedex/tree/main/pokemon/pokepages
+	url = https://github.com/lindsaymei/pokedex.git
+
+
