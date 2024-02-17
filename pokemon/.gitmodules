@@ -1,4 +1,3 @@
-[submodule "pokepages"]
-	path = ../pokepages
-	url = https://github.com/lindsaymei/pokedex/blob/main/pokemon/pokepages
-
+[submodule "pokedex"]
+	path = pokedex
+	url = https://github.com/lindsaymei/pokedex
